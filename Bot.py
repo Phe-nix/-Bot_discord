@@ -294,6 +294,9 @@ async def resume(ctx): # สั่งให้บอทเล่นเพลง�
         return
     voice_client.resume()
 
+@client.command()
+async def clear(ctx, amount=5): #ลบข้อความ nข้อความ
+    await ctx.channel.purge(limit=amount)
 ############################
 ##### Guessing word game 
 #words = ['computer', 'kuy', 'dick'] # คำทั้งหมด
