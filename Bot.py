@@ -258,6 +258,18 @@ async def pause(ctx): # สั่งให้บอทหยุดเล่น�
     voice_client.pause()
 
 @client.command()
+async def resume(ctx): # สั่งให้บอทเล่นเพลงต่อ
+    voice_client = get(client.voice_clients, guild=ctx.guild)
+
+    if ctx.author.voice == None or ctx.author.voice.channel != voice_client.channel:
+        await ctx.channel.send("You aren't in VC")
+        return
+    if not voice_client.is_paused():
+        await ctx.channel.send("Music wasn't paused")
+        return
+    voice_client.resume()
+
+@client.command()
 async def stop(ctx): # สั่งให้บอทลบเพลงทั้งหมด
     voice_client = get(client.voice_clients, guild=ctx.guild)
 
@@ -271,7 +283,7 @@ async def stop(ctx): # สั่งให้บอทลบเพลงทั้
     queue_list = []
 
 @client.command()
-async def skip(ctx): # สั่งให้บอทลบ
+async def skip(ctx): # สั่งให้บอท ข้ามที่เล่นอยู่
     voice_client = get(client.voice_clients, guild=ctx.guild)
 
     if ctx.author.voice == None or ctx.author.voice.channel != voice_client.channel:
@@ -282,17 +294,6 @@ async def skip(ctx): # สั่งให้บอทลบ
         return
     voice_client.stop()
 
-@client.command()
-async def resume(ctx): # สั่งให้บอทเล่นเพลงต่อ
-    voice_client = get(client.voice_clients, guild=ctx.guild)
-
-    if ctx.author.voice == None or ctx.author.voice.channel != voice_client.channel:
-        await ctx.channel.send("You aren't in VC")
-        return
-    if not voice_client.is_paused():
-        await ctx.channel.send("Music wasn't paused")
-        return
-    voice_client.resume()
 ############################
 @client.command()
 async def clear(ctx, amount=5): #ลบข้อความ nข้อความ
