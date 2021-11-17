@@ -300,7 +300,7 @@ async def clear(ctx, amount=5): #ลบข้อความ nข้อควา
     await ctx.channel.purge(limit=amount)
 ############################
 ##### Guessing word game 
-#words = ['computer', 'kuy', 'dick'] # คำทั้งหมด
+#words = ['computer', 'apple'] # คำทั้งหมด
 #word = random.choice(words)
 #spaces = ['_'] * len(word)
 #@client.command()
