@@ -15,7 +15,7 @@ from dotenv import load_dotenv
 load_dotenv()
 token = os.getenv('TOKEN')
 ############################
-client = commands.Bot(command_prefix='.') # คำหน้าเพื่อเรียก bot
+client = commands.Bot(command_prefix='.', help_command=None) # คำหน้าเพื่อเรียก bot
 @client.event
 async def on_ready():
     print(f'Logged in as {client.user}.\n-----------')
@@ -345,4 +345,20 @@ async def clear(ctx, amount=5): #ลบข้อความ nข้อควา
 #    if win_check() == 1:
 #        await ctx.sent('เย้ยยย เกมจบแล้ววว ยินดีด้วย')
 #
+@bot.command()
+async def help(ctx):
+    emBed = discord.Embed(title="อกหักอย่าถามเยอะ", description="รู้แล้วก็รีบไป", color=0xffff00)
+    emBed.add_field(name="help", value="ช่วยเท่าที่ไหวนะ", inline=False)
+    emBed.add_field(name="poll", value="ข้าจะสร้างทางเลือกให้เจ้า", inline=False)
+    emBed.add_field(name="show", value="อยากเห็นอะๆรของข้ารึ", inline=False)
+    emBed.add_field(name="tictactoe", value="XO อย่าลืม @p1 @p2", inline=False)
+    emBed.add_field(name="place", value="วางตำแหน่งXOยังไงหละะ", inline=False)
+    emBed.add_field(name="play", value="ma ma sing a song", inline=False)
+    emBed.add_field(name="pause", value="หยุดเพลงแปป", inline=False)
+    emBed.add_field(name="resume", value="มาๆ เล่นเพลงต่อ", inline=False)
+    emBed.add_field(name="stop", value="stop sing a songg", inline=False)
+    emBed.add_field(name="skip", value="เบื่อเพลงที่เปิดอยู่เนี่ย ข้ามไปนะ", inline=False)
+    emBed.set_thumbnail(url="https://f.ptcdn.info/836/037/000/nyjdgsn6287E8tipq7m-o.jpg")
+    await ctx.channel.send(embed=emBed)
+    
 client.run(token) # TOKEN ของ Bot
