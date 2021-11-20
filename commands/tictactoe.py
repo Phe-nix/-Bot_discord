@@ -3,7 +3,6 @@ from discord.ext import commands
 import random
 
 
-
 class tictactoe_command(commands.Cog):
 
     def __init__(self, clinet): 
@@ -139,6 +138,6 @@ class tictactoe_command(commands.Cog):
             await ctx.send("ใส่เลขที่เป็นจำนวนเต็มโว้ยยยยยย!!!")
 
 
-def setup(clinet):
-    clinet.add_cog(tictactoe_command(clinet))
-    
+def setup(client):
+    client.add_cog(tictactoe_command(client))
+
