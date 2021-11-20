@@ -5,8 +5,8 @@ import random
 
 class tictactoe_command(commands.Cog):
 
-    def __init__(self, clinet): 
-        self.clinet = clinet
+    def __init__(self, client): 
+        self.client = client
  
     
     player1 = ""
