@@ -53,3 +53,4 @@ if __name__ == '__main__':
 
     client.add_cog(main(client))
     client.run(token) # TOKEN ของ Bot
+    
