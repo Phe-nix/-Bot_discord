@@ -12,9 +12,6 @@ class music_command(commands.Cog):
 
     def __init__(self, client):
         self.client = client
-    @commands.command()
-    async def check(self, ctx): # เช็คคิวเพลง
-        await ctx.channel.send(queue_list)
 
     @commands.command()
     async def moveto(self, ctx): # ให้บอทมาห้องที่เราอยู่
