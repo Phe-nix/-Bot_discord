@@ -23,7 +23,7 @@ class music_command(commands.Cog):
     async def play(self, ctx, url): # ให้บอทเล่นเพลง ตาม url
         vc = ctx.voice_client
         if ctx.author.voice == None:
-            await ctx.channel.send("You are't in VC")
+            await ctx.channel.send("คุณไม่ได้อยู่ในห้อง")
             return
 
         if vc == None:
@@ -39,7 +39,7 @@ class music_command(commands.Cog):
             vc.source = discord.PCMVolumeTransformer(vc.source,volume=0.1)
         else:
             queue_list.append(url)
-            await ctx.channel.send("Added to queue")
+            await ctx.channel.send("เพิ่มเพลงเรียบร้อย")
 
     def queued(self, ctx): # ส่วนที่จะทำการเล่นเพลงในคิว
         if len(queue_list) > 0:
@@ -59,10 +59,10 @@ class music_command(commands.Cog):
         vc = ctx.voice_client
 
         if ctx.author.voice == None or ctx.author.voice.channel != vc.channel:
-            await ctx.channel.send("You aren't in VC")
+            await ctx.channel.send("คุณไม่ได้อยู่ในห้อง")
             return
         if not vc.is_playing():
-            await ctx.channel.send("Music isn't playing")
+            await ctx.channel.send("เพลงไม่ได้เปิดอยู่")
             return
         vc.pause()
 
@@ -71,10 +71,10 @@ class music_command(commands.Cog):
         vc = ctx.voice_client
 
         if ctx.author.voice == None or ctx.author.voice.channel != vc.channel:
-            await ctx.channel.send("You aren't in VC")
+            await ctx.channel.send("คุณไม่ได้อยู่ในห้อง")
             return
         if not vc.is_paused():
-            await ctx.channel.send("Music wasn't paused")
+            await ctx.channel.send("เพลงไม่ได้หยุดอยู่")
             return
         vc.resume()
 
@@ -83,10 +83,10 @@ class music_command(commands.Cog):
         vc = ctx.voice_client
 
         if ctx.author.voice == None or ctx.author.voice.channel != vc.channel:
-            await ctx.channel.send("You aren't in VC")
+            await ctx.channel.send("คุณไม่ได้อยู่ในห้อง")
             return
         if not vc.is_playing():
-            await ctx.channel.send("Music isn't playing")
+            await ctx.channel.send("เพลงไม่ได้เปิดอยู่")
             return
         vc.stop()
         queue_list = []
@@ -95,10 +95,10 @@ class music_command(commands.Cog):
     async def skip(self, ctx): # สั่งให้บอท ข้ามที่เล่นอยู่
         vc = ctx.voice_client
         if ctx.author.voice == None or ctx.author.voice.channel != vc.channel:
-            await ctx.channel.send("You aren't in VC")
+            await ctx.channel.send("คุณไม่ได้อยู่ในห้อง")
             return
         if not vc.is_playing():
-            await ctx.channel.send("Music isn't playing")
+            await ctx.channel.send("เพลงไม่ได้เปิดอยู่")
             return
         vc.stop()
 
