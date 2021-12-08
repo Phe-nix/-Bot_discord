@@ -20,9 +20,10 @@ class main(commands.Cog):
         print(f'Logged in as {self.client.user} ({self.client.user.id})')
         
     #ลบข้อความ nข้อความ
-    @commands.command()
-    async def clear(self, ctx, amount=5): 
+    @client.command()
+    async def clear(ctx, amount=5):
         await ctx.channel.purge(limit=amount)
+        await ctx.channel.send("Remove messages done!", delete_after=5)
 
     # Reconnect
     @commands.Cog.listener()
