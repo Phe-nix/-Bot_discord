@@ -23,7 +23,7 @@ class main(commands.Cog):
     @client.command()
     async def clear(ctx, amount=5):
         await ctx.channel.purge(limit=amount)
-        await ctx.channel.send("Remove messages done!", delete_after=5)
+        await ctx.channel.send("ข้อความถูกลบเรียบร้อยแล้ว", delete_after=5)
 
     # Reconnect
     @commands.Cog.listener()
