@@ -37,11 +37,11 @@ class main(commands.Cog):
         # Bot does not have permission
         elif isinstance(error, commands.MissingPermissions):
             await ctx.send('Bot Permission Missing!')
-#ลบข้อความ nข้อความ
-@client.command()
-async def clear(ctx, amount=5):
-    await ctx.channel.purge(limit=amount)
-    await ctx.channel.send("ข้อความถูกลบเรียบร้อยแล้ว", delete_after=5)
+    #ลบข้อความ nข้อความ
+    @commands.command()
+    async def clear(self, ctx, amount=5):
+        await ctx.channel.purge(limit=amount)
+        await ctx.channel.send("ข้อความถูกลบเรียบร้อยแล้ว", delete_after=5)
 
 if __name__ == '__main__':
     # Load extension
