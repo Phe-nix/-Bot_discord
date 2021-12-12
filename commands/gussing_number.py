@@ -15,16 +15,13 @@ class guess_game(commands.Cog):
     rounds_number = round(math.log(upper_bound - lower_bound + 1, 2))  # กำหนดรอบในการทาย
 
     
-    count = 0
+    count = 0# กำหนดจำนวนรอบที่ทายไปแล้วให้เท่ากับ 0
 
     @commands.command()
     async def bound(self, ctx, lower: int,upper: int): # ตั้งค่าเลขต้น และ เลขท้าย
-        # ถ้าไม่ตั้ง เลขจะเป็นแบบ 1-10
-        # lower_bound = 1
-        # upper_bound = 10
 
         if lower < upper:
-            # เปลี่ยนค่าขอบล่าง และขอบบน
+            # เปลี่ยนค่าขอบล่าง และขอบบน ตามค่าที่รับมา
             guess_game.lower_bound = lower
             guess_game.upper_bound = upper
 
